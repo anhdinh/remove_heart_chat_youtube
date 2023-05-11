@@ -1,0 +1,37 @@
+{
+  "manifest_version": 3,
+  "name": "Removed heart icon",
+  "version": "1.0",
+  "description": "Removed heart icon from chat box Youtube",
+  "icons": {
+    "16": "images/heart-remove-16.png",
+    "24": "images/heart-remove-24.png",
+    "32": "images/heart-remove-32.png",
+    "48": "images/heart-remove-32.png",
+    "64": "images/heart-remove-32.png",
+    "128": "images/heart-remove-32.png"
+  },
+  "permissions": [
+    "webRequest",
+    "scripting",
+    "activeTab",
+    "clipboardRead",
+    "clipboardWrite",
+    "tabs"
+],
+"host_permissions": [
+  "https://www.youtube.com/*"
+],
+  "action": {
+    "default_popup": "main.html",
+    "default_title": "Removed 'reactive button'"
+  }
+  , "content_scripts": [
+    {
+      "js": ["scripts/jquery-3.6.4.min.js","scripts/run_after_10seconds.js"],
+      "matches": [
+        "https://www.youtube.com/*"
+      ]
+    }
+  ]
+}
