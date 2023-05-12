@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Removed heart icon",
+  "name": "Remover",
   "version": "1.0",
-  "description": "Removed heart icon from chat box Youtube",
+  "description": "Removed dislike elements on websites",
   "icons": {
     "16": "images/heart-remove-16.png",
     "24": "images/heart-remove-24.png",
@@ -20,11 +20,12 @@
     "tabs"
 ],
 "host_permissions": [
-  "https://www.youtube.com/*"
+  "https://www.youtube.com/*",
+  "https://www.nimo.tv/*"
 ],
-  "action": {
+"action": {
     "default_popup": "main.html",
-    "default_title": "Removed 'reactive button'"
+    "default_title": "Remove unexpect element on websites"
   }
   , "content_scripts": [
     {

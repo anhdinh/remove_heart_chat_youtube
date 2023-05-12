@@ -37,13 +37,9 @@
 //  }
 
 // });
-whiteout = () => {
-     const chatframe = document.getElementById('chatframe');
-     if (chatframe) {
-        var reaction_control_panel  = chatframe.contentWindow.document.getElementById('reaction-control-panel');
-        if(reaction_control_panel) reaction_control_panel.remove();   
-      }
 
+whiteout = () => {
+ console.log('run when click icon extentions');
 }
 
 whiteout()
