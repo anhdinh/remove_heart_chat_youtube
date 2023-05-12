@@ -1,46 +1,64 @@
 
-// Copyright 2022 Google LLC
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//     https://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
+jQuery(function(){
+  runIfdocumentIsReady(); 
+});
 
-//
-
-//   setTimeout(() => {
-//     const chatframe = document.getElementById('chatframe');
-//      if (chatframe) {
-//         var reaction_control_panel  = chatframe.contentWindow.document.getElementById('reaction-control-panel');
-//         reaction_control_panel.remove();   
-//      }
-// }, 10000);
-
-
-
-// document.addEventListener("DOMContentLoaded", function() {
-//     const chatframe = document.getElementById('chatframe');
-//  if (chatframe) {
-//     $document =  chatframe.contentWindow.document;
-//     $document.addEventListener("DOMContentLoaded", function() {
-//         var reaction_control_panel  = $document.getElementById('reaction-control-panel');
-//         reaction_control_panel.remove();    
-//     });
-     
-//  }
-
-// });
-
-whiteout = () => {
- console.log('run when click icon extentions');
+function runIfdocumentIsReady(){ 
+  setInterval(function(){
+    removeReactPannelOnChatNimo();
+    removeHeartIconOnChatYoutube()
+  },3000)
 }
 
-whiteout()
+function removeHeartIconOnChatYoutube(){
+  const chatframe = document.getElementById('chatframe');
+  if (chatframe) {
+    removeHeartIcon(chatframe);
+  }
+}
 
+function removeHeartIcon(chatframe){
+  var heartIcon  = chatframe.contentWindow.document.getElementById('reaction-control-panel');
+  if(heartIcon) {
+    heartIcon.remove()  
+  }
+}
+
+function removeReactPannelOnChatNimo(){
+  if(window.location.host==='www.nimo.tv'){
+    let reactPannel = document.getElementsByClassName('nimo-iframe__wrap movePannel react-draggable')[0];
+    let rankDonors =  document.getElementsByClassName('nimo-room__rank n-as-rel bc-brighter')[0];
+    let nimoRm = document.getElementsByClassName('nimo-rm')[0];
+    let gift = document.getElementsByClassName('nimo-room__gift-shop')[0]
+    let sideBar = document.getElementById('side-bar');
+
+    if(reactPannel){
+      reactPannel.remove()
+    }
+
+    if(rankDonors){
+      rankDonors.remove();
+    }
+
+    if(sideBar){
+      sideBar.remove();
+    }
+
+    if(nimoRm){
+      nimoRm.remove();
+    }
+    if(gift){
+      gift.remove();
+    }
+  }
+}
+
+
+chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
+  if(JSON.parse(request.data).show_nav){
+    document.getElementById('header').style.display='block';
+  }else{
+    document.getElementById('header').style.display='none';
+  }
+  sendResponse({ fromcontent: "This message is from content.js" });
+});

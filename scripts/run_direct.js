@@ -5,7 +5,7 @@ callWhiteOut = (tab) => {
       chrome.scripting.executeScript(
         {
           target: {tabId: id, allFrames: true},
-          files: ['scripts/content.js']
+          files: ['scripts/execute.js']
         }
       )
       console.log(`Loading: ${url}`); 

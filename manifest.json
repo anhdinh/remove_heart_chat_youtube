@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Remover",
+  "name": "Andy Extention",
   "version": "1.0",
-  "description": "Removed dislike elements on websites",
+  "description": "Removed unexpect elements on some websites",
   "icons": {
     "16": "images/heart-remove-16.png",
     "24": "images/heart-remove-24.png",
@@ -25,11 +25,11 @@
 ],
 "action": {
     "default_popup": "main.html",
-    "default_title": "Remove unexpect element on websites"
+    "default_title": "Andy Extention"
   }
   , "content_scripts": [
     {
-      "js": ["scripts/jquery-3.6.4.min.js","scripts/run_after_10seconds.js"],
+      "js": ["scripts/jquery-3.6.4.min.js","scripts/content.js"],
       "matches": [
         "https://www.youtube.com/*",
         "https://www.nimo.tv/*"
