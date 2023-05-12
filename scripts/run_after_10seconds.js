@@ -5,30 +5,30 @@ jQuery(function(){
 
 function runIfdocumentIsReady(){ 
   setInterval(function(){
-    removeBannerChatNimo();
-    removeHeartFromYoutube()
+    removeReactPannelOnChatNimo();
+    removeHeartIconOnChatSectionYoutube()
   },3000)
 }
 
-function removeHeartFromYoutube(){
+function removeHeartIconOnChatSectionYoutube(){
   const chatframe = document.getElementById('chatframe');
   if (chatframe) {
-    removeHeartFromChatFrame(chatframe);
+    removeHeartIcon(chatframe);
   }
 }
 
-function removeHeartFromChatFrame(chatframe){
-  var reaction_control_panel  = chatframe.contentWindow.document.getElementById('reaction-control-panel');
-  if(reaction_control_panel) {
-    reaction_control_panel.remove()  
+function removeHeartIcon(chatframe){
+  var heartIcon  = chatframe.contentWindow.document.getElementById('reaction-control-panel');
+  if(heartIcon) {
+    heartIcon.remove()  
   }
 }
 
-function removeBannerChatNimo(){
+function removeReactPannelOnChatNimo(){
   if(window.location.host==='www.nimo.tv'){
-    let iframe_pannel = document.getElementsByClassName('nimo-iframe__wrap movePannel react-draggable')[0];
-    if(iframe_pannel){
-      iframe_pannel.remove()
+    let reactPannel = document.getElementsByClassName('nimo-iframe__wrap movePannel react-draggable')[0];
+    if(reactPannel){
+      reactPannel.remove()
     }
   }
 }
