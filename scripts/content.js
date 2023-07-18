@@ -7,6 +7,7 @@ function runIfdocumentIsReady(){
   setInterval(function(){
     removeReactPannelOnChatNimo();
     removeHeartIconOnChatYoutube()
+    removeBrandLogoInScreenYoutube();
   },3000)
 }
 
@@ -14,6 +15,13 @@ function removeHeartIconOnChatYoutube(){
   const chatframe = document.getElementById('chatframe');
   if (chatframe) {
     removeHeartIcon(chatframe);
+  }
+}
+
+function removeBrandLogoInScreenYoutube(){
+  const brandLogo =  document.getElementsByClassName("branding-img-container ytp-button")[0].remove()
+  if(brandLogo){
+    brandLogo.remove()
   }
 }
 
