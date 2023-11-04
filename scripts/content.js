@@ -9,6 +9,7 @@ function runIfdocumentIsReady(){
     count_number = count_number+1;
     if(count_number%2===0){
       removeOverlayDivOnVideoScreenOnStudyphim();
+      removeAlertWarningAboutAdblock4CambridgeDic();
     }
     if(count_number===10){
       removeHeartIconOnChatYoutube()
@@ -97,6 +98,19 @@ function removeOverlayDivOnVideoScreenOnStudyphim(){
       let pausedButtom =  document.querySelector(".state-paused");
       if (pausedButtom) {
         pausedButtom.click();
+      }
+    }
+  }
+}
+
+function removeAlertWarningAboutAdblock4CambridgeDic(){
+  if(window.location.host==='dictionary.cambridge.org'){
+    let overlayDiv = document.querySelector(".fc-dialog-overlay");
+    if(overlayDiv){
+      overlayDiv.remove();
+      let closeButtom =  document.querySelector(".fc-close-icon");
+      if (closeButtom) {
+        closeButtom.click();
       }
     }
   }
