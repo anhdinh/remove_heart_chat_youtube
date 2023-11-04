@@ -21,7 +21,8 @@
 ],
 "host_permissions": [
   "https://www.youtube.com/*",
-  "https://www.nimo.tv/*"
+  "https://www.nimo.tv/*",
+  "https://www.studyphim.vn/*"
 ],
 "action": {
     "default_popup": "main.html",
@@ -32,7 +33,8 @@
       "js": ["scripts/jquery-3.6.4.min.js","scripts/content.js"],
       "matches": [
         "https://www.youtube.com/*",
-        "https://www.nimo.tv/*"
+        "https://www.nimo.tv/*",
+        "https://www.studyphim.vn/*"
       ]
     }
   ]
