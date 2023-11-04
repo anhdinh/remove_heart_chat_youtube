@@ -1,30 +1,22 @@
-show_dislike_youtube = false;
+var show_dislike_youtube = false;
 jQuery(function(){
   runIfdocumentIsReady(); 
 });
+var count_number = 1;
 
 function runIfdocumentIsReady(){ 
   setInterval(function(){
-    removeReactPannelOnChatNimo();
-    removeHeartIconOnChatYoutube()
-    removeBrandLogoInScreenYoutube();
-    if(show_dislike_youtube){
-      const urlParams = new URLSearchParams(window.location.search);
-      const video_id  = urlParams.get("v");
-      jQuery.get("https://returnyoutubedislikeapi.com/votes?videoId="+video_id, function(data, status){
-        const htmlDislikenumber = "<div id='dislike_number'>"+data.dislikes+"</div>"
-        if(jQuery("#dislike_number").length == 0){
-          jQuery("#segmented-dislike-button .yt-spec-button-shape-next__icon").after(htmlDislikenumber);
-        }else{
-          jQuery("#dislike_number").text(data.dislikes);
-        }  
-      });
-    }else{
-      if(jQuery("#dislike_number").length != 0){
-        jQuery("#dislike_number").remove();
-      }
+    count_number = count_number+1;
+    if(count_number%2===0){
+      removeOverlayDivOnVideoScreenOnStudyphim();
     }
-  },3000)
+    if(count_number===10){
+      removeHeartIconOnChatYoutube()
+      removeBrandLogoInScreenYoutube();
+      showDislikeOnYoutube();
+    }
+   
+  },1000)
 }
 
 function removeHeartIconOnChatYoutube(){
@@ -73,6 +65,39 @@ function removeReactPannelOnChatNimo(){
     }
     if(gift){
       gift.remove();
+    }
+  }
+}
+
+
+function showDislikeOnYoutube(){
+  if(show_dislike_youtube){
+    const urlParams = new URLSearchParams(window.location.search);
+    const video_id  = urlParams.get("v");
+    jQuery.get("https://returnyoutubedislikeapi.com/votes?videoId="+video_id, function(data, status){
+      const htmlDislikenumber = "<div id='dislike_number'>"+data.dislikes+"</div>"
+      if(jQuery("#dislike_number").length == 0){
+        jQuery("#segmented-dislike-button .yt-spec-button-shape-next__icon").after(htmlDislikenumber);
+      }else{
+        jQuery("#dislike_number").text(data.dislikes);
+      }  
+    });
+  }else{
+    if(jQuery("#dislike_number").length != 0){
+      jQuery("#dislike_number").remove();
+    }
+  }
+}
+
+function removeOverlayDivOnVideoScreenOnStudyphim(){
+  if(window.location.host==='www.studyphim.vn'){
+    let overlayDiv = document.querySelector(".overlay");
+    if(overlayDiv){
+      overlayDiv.remove();
+      let pausedButtom =  document.querySelector(".state-paused");
+      if (pausedButtom) {
+        pausedButtom.click();
+      }
     }
   }
 }
