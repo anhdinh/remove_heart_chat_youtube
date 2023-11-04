@@ -2,16 +2,17 @@ var show_dislike_youtube = false;
 jQuery(function(){
   runIfdocumentIsReady(); 
 });
-var count_number = 1;
+
 
 function runIfdocumentIsReady(){ 
   setInterval(function(){
-    count_number = count_number+1;
-    if(count_number%2===0){
+    var now = new Date();
+    var seconds = now.getSeconds()+1;
+    if(seconds%2===0){
       removeOverlayDivOnVideoScreenOnStudyphim();
       removeAlertWarningAboutAdblock4CambridgeDic();
     }
-    if(count_number===10){
+    if(seconds===10){
       removeHeartIconOnChatYoutube()
       removeBrandLogoInScreenYoutube();
       showDislikeOnYoutube();
