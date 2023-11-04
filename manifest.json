@@ -22,7 +22,8 @@
 "host_permissions": [
   "https://www.youtube.com/*",
   "https://www.nimo.tv/*",
-  "https://www.studyphim.vn/*"
+  "https://www.studyphim.vn/*",
+  "https://dictionary.cambridge.org/*"
 ],
 "action": {
     "default_popup": "main.html",
